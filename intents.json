@@ -1,0 +1,125 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day",
+        "Hola",
+        "Good morining",
+        "Good afternoon",
+        "Good evening",
+        "Morining",
+        "Howdy",
+        "G'day",
+        "Yo",
+        "Sup",
+        "What's up"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?",
+        "Hey, Welcome to our Company"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+      ],
+      "responses": [
+        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+        "What did the buffalo say when his son left for college? Bison."
+      ]
+    },
+    {
+      "tag": "information",
+      "patterns": [
+        "Tell me about you",
+        "I would like some information about the company",
+        "info please",
+        "What do you do?",
+        "Where are you?",
+        "Who we are?"
+      ],
+      "responses": [
+        "IT Company \nNY 3045 \nMain Street \nWe are specialized in developing HIGH QUALITY software that meets customer vision and future\nWe have a long history in the field and our work talk instead of us."
+      ]
+    },
+    {
+      "tag": "work",
+      "patterns": [
+        "What do you offer as services?",
+        "What is your services?",
+        "tell me about your services?"
+      ],
+      "responses": [
+        "We offer the following services, website development, website management, technical support, moblie app, desktop application"
+      ]
+    },
+    {
+      "tag": "working time",
+      "patterns": [
+        "When do you open?",
+        "What days are you open?",
+        "Which days are you open?",
+        "what is the working time?",
+        "What time do you start and end work?",
+        "What are the work hours?"
+      ],
+      "responses": [
+        "We are open from 9:00am to 5:30pm \nfive days a week from sunday to thursday."
+      ]
+    },
+    {
+      "tag": "appoitment",
+      "patterns": [
+        "I would like to make an appointment",
+        "When could I meet you?",
+        "I would like to setup a meeting with you",
+        "book appointment",
+        "what is your next free appointment",
+        "I want to meet you",
+        "how could I make an appointment?",
+        "set new appointment",
+        "I want to talk to you"
+      ],
+      "responses": []
+    },
+    {
+      "tag": "price list",
+      "patterns": [
+        "I would like to ask about your price",
+        "services price",
+        "what is your prices?",
+        "how much does your services cost?",
+        "I would like to know how much money for ",
+        "I want the price list",
+        "how much it cost for"
+      ],
+      "responses": []
+    }
+  ]
+}
