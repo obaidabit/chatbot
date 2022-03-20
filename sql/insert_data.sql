@@ -1,6 +1,6 @@
-INSERT INTO Customer(NAME) VALUES ("customer 1");
-INSERT INTO Customer(NAME) VALUES ("customer 2");
-INSERT INTO Customer(NAME) VALUES ("customer 3");
+INSERT INTO Customer(NAME,EMAIL,PASSWORD) VALUES ("customer 1","email@test.com","password1");
+INSERT INTO Customer(NAME,EMAIL,PASSWORD) VALUES ("customer 2","email2@test.com","password2");
+INSERT INTO Customer(NAME,EMAIL,PASSWORD) VALUES ("customer 3","email3@test.com","password3");
 
 INSERT INTO Department(NAME) VALUES ("Dep 1");
 INSERT INTO Department(NAME) VALUES ("Dep 2");

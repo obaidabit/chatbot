@@ -11,8 +11,8 @@ class Register:
     def save_customer(self, customer: Customer):
         if customer.id == 0 or customer.name == "":
             return {"msg": "customer not registered missing data ( ID or Name)", "status": False}
-        sql_statment = "INSERT INTO customer(name) VALUES({name})".format(
-            name=customer.name)
+        sql_statment = "INSERT INTO customer(name,email,password) VALUES({name},{email},{password})".format(
+            name=customer.name, email=customer.email, password=customer.password)
         self.db.insert(sql_statment)
         return {"msg": "customer registered", "status": True}
 
