@@ -16,9 +16,10 @@ import './Chat.css'
         const MsgHTML=`
         <div class='msg-${side}'>
             <img src='./img/boy.png'></img>
-            <div class='msg-details'>
-                <h4>User</h4>
-                <p>${text}</p>
+            <div class='msg-details msg-bubble'>
+                    <h4>Chatbot</h4>
+                    <p>${text}</p>
+                    <span>${getDate()}</span>
             </div>
         </div>
         `
@@ -50,6 +51,13 @@ import './Chat.css'
         
 
     }
+    function getDate(date){
+        const houre = "0" + new Date().getHours()
+        const minutes = "0"+ new Date().getMinutes()
+        const time =houre.slice(-2)+":"+minutes.slice(-2)
+        return    houre <=12 ?time+" AM":time+" PM"
+
+    }
     function close(e){
        
     }
@@ -57,14 +65,15 @@ import './Chat.css'
     <div className="chat" data-show="false">
         <header>
             <h4>Company Chat</h4>
-            <a className='close' onClick={close}> <AiOutlineClose/> </a>
+            <a className='close' onClick={getDate}> <AiOutlineClose/> </a>
         </header>
         <div className='msg-box'>
-            <div className='msg-left'>
+            <div className='msg-left '>
                 <img src='./img/boy.png'></img>
-                <div className='msg-details'>
+                <div className='msg-details msg-bubble'>
                     <h4>Chatbot</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, harum !</p>
+                    <span>{getDate()}</span>
                 </div>
             </div>
 
