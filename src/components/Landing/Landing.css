@@ -1,0 +1,118 @@
+.landing{
+    background:linear-gradient(to right,var(--primary-color) 50%,var(--secondary-color) 50%);
+    padding-bottom: 100px;
+}
+@media (max-width:767px){
+    .landing{
+        background: var(--primary-color);
+        padding-top: var(--section-padding-top);
+        padding-bottom: var(--section-padding-bottom);
+    }
+}
+.landing .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+@media (max-width:767px) {
+    .landing .box{
+        flex-direction: column;
+    }  
+}
+.landing .box{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.landing .box .content{
+    text-align: left;
+    max-width: 300px;
+
+}
+@media (max-width:767px) {
+    .landing .box .content{
+        text-align: center;
+    
+    }  
+}
+.landing .box .content h5:first-child {
+    font-size: 15px;
+    color: #acb5c2;
+    margin: 5px 0;
+    font-weight: normal;
+}
+.landing .box .content p{
+    font-size:46px;
+    color: white;
+    font-weight: bold;
+    margin: 10px auto;
+
+}
+@media (max-width:991px) {
+    .landing .box .content p{
+        font-size:26px;
+        margin:20px auto;
+    }
+}
+.landing .box .content h5:last-child{
+    font-size: 15px;
+    color: #acb5c2;
+    margin: 5px 0;
+    font-weight: normal;
+    max-width: 200px;
+    line-height: 1.5;
+}
+@media (max-width:767px) {
+    .landing .box .content h5:last-child{
+        max-width: 100%;
+    
+    }  
+}
+.landing .box .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.landing .box .link a{
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 16px;
+    background-color: white;
+    transition: var( --main-transition);
+
+}
+@media (max-width:991px) {
+    .landing .box .link a{
+       padding: 6px 8px;
+       font-weight: 600;
+       font-size: 16px;
+    }
+    
+}
+.landing .box .link a:first-child{
+    background-color: white;
+    margin-right:15px ;
+}
+.landing .box .link a:hover{
+    background-color: var(--alt-color);
+    color: var(--secondary-color);
+}
+.landing img{
+    max-width: 750px;
+}
+@media (max-width:991px) {
+    .landing img{
+       max-width: 450px;
+    }
+    
+}
+@media (max-width:767px) {
+    .landing img{
+       display: none;
+    }
+    
+}
