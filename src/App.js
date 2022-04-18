@@ -4,6 +4,8 @@ import Chat from './components/Chat/Chat';
 import Header from './components/Header/Header';
 import Landing from './components/Landing/Landing';
 import Services from './components/Services/Services';
+import Info from "./components/Info/Info"
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
       <Header/>
       <Landing/>
       <Services/>
+      <Info/>
       <button id="ichat" onClick={show}></button>
       <label className='show' htmlFor='ichat'>
         <BsFillChatFill />
