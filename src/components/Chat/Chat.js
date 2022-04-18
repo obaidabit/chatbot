@@ -8,16 +8,16 @@ import './Chat.css'
        e.preventDefault()
        const MsgText=e.target[0].value
        if(!MsgText) return
-       appendMsg("right",MsgText)
+       appendMsg("User","right",MsgText)
        e.target[0].value = ''
        botResponse(MsgText)
     }
-    function appendMsg(side,text){
+    function appendMsg(name,side,text){
         const MsgHTML=`
         <div class='msg-${side}'>
             <img src='./img/boy.png'></img>
             <div class='msg-details msg-bubble'>
-                    <h4>Chatbot</h4>
+                    <h4>${name}</h4>
                     <p>${text}</p>
                     <span>${getDate()}</span>
             </div>
@@ -40,7 +40,7 @@ import './Chat.css'
             const data = await response.json()
             console.log(data)
             setTimeout(() => {
-                appendMsg("left",data.msg)
+                appendMsg("Chatbot","left",data.msg)
                 
             }, 1500);
             
@@ -52,10 +52,11 @@ import './Chat.css'
 
     }
     function getDate(date){
-        const houre = "0" + new Date().getHours()
+        const houre = new Date().getHours()
+        const h= houre >12 ? "0"+((houre -1) %12 +1) :"0"+houre
         const minutes = "0"+ new Date().getMinutes()
-        const time =houre.slice(-2)+":"+minutes.slice(-2)
-        return    houre <=12 ?time+" AM":time+" PM"
+        const time =h.slice(-2)+":"+minutes.slice(-2)
+         return   houre <=12 ?time+" AM":time+" PM" 
 
     }
     function close(e){

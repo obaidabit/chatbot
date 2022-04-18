@@ -3,7 +3,7 @@ import time
 app = Flask(__name__)
 
 @app.route("/get",methods=["POST"])
-def get_current_time():
+def get_Response():
     request_data = json.loads(request.data)
     #print(request_data)
     msg=request_data['msg']
