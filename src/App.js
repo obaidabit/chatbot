@@ -6,8 +6,7 @@ import Landing from './components/Landing/Landing';
 import Services from './components/Services/Services';
 import Info from "./components/Info/Info"
 import Achieve from './components/Achieve/Achieve';
-
-
+import Recent from './components/Recent/Recent';
 
 
 function App() {
@@ -30,6 +29,7 @@ function App() {
       <Services/>
       <Info/>
       <Achieve/>
+      <Recent/>
       <button id="ichat" onClick={show}></button>
       <label className='show' htmlFor='ichat'>
         <BsFillChatFill />
