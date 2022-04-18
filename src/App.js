@@ -1,6 +1,7 @@
 import {BsFillChatFill} from 'react-icons/bs'
 import './App.css';
 import Chat from './components/Chat/Chat';
+import Header from './components/Header/Header';
 
 function App() {
   function show(e){
@@ -17,10 +18,12 @@ function App() {
   }
   return (
     <div className="App" id="app">
+      <Header/>
       <button id="ichat" onClick={show}></button>
-      <label className='show' htmlFor='ichat'><BsFillChatFill /></label>
+      <label className='show' htmlFor='ichat'>
+        <BsFillChatFill />
+      </label>
       <Chat/>
-      
       
     </div>
   );
