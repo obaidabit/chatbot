@@ -1,0 +1,113 @@
+.footer{
+    background-color: var(--section-color);
+    padding-top: var(--section-padding-top);
+}
+.footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+@media (max-width:991px){
+    .footer .container {
+        grid-template-columns: repeat(auto-fill,minmax(370px,1fr)); 
+    }
+} 
+.footer  .logo{
+    display: block;
+    width: fit-content;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--secondary-color);
+
+   
+}
+.footer  .logo img{
+    max-width: 80px;
+    display: block;
+    margin-bottom: 10px;
+}
+.footer  .link{
+    text-align: left;
+}
+.footer  .link li{
+    margin: 20px auto;
+
+}
+.footer  .link a{
+    font-size:20px ;
+    font-weight: normal;
+    padding: 20px;
+    color: var(--secondary-color);
+    transition: var(--main-transition);
+}
+.footer  .link a:hover{
+    color: var(--primary-color);
+    margin-left: 15px;
+}
+.footer  .box .line {
+    display: flex;
+    align-items: center;
+    margin: 10px auto;
+    color: var(--secondary-color);
+}
+@media (max-width:991px){
+    .footer  .box .line {
+       flex-direction: column;
+    }
+} 
+
+.footer  .box .line .info{
+    font-size: 16px;
+    font-weight: 300;
+    padding-left: 15px;
+}
+@media (max-width:991px){
+    .footer  .box .line .info{
+        margin:20px auto 5px
+    }
+} 
+.footer  .box .social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    
+}
+.footer  .box .social li:not(:last-child){
+    margin-right: 25px;
+}
+.footer  .box .social  a{
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--section-color);
+    font-size: 18px;
+    background-color: var(--secondary-color);
+    transition: var(--main-transition);
+}
+.footer .box .social .facebook:hover {
+	background-color: #1877f2;
+    color:var(--secondary-color);
+}
+.footer .box .social .twitter:hover {
+	background-color: #1da1f2;
+    color:var(--secondary-color);
+}
+.footer .box .social .telegram:hover {
+	background-color: #0088cc;
+    color:var(--secondary-color);
+}
+.footer .box .social .whats:hover {
+	background-color: #25d366;
+    color:var(--secondary-color);
+}
+.footer .copyright{
+    display: block;
+    padding: 20px 0;
+    color: var(--secondary-color);
+    border-top: 1px solid var(--primary-color);
+}
