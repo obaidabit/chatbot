@@ -5,6 +5,9 @@ import Header from './components/Header/Header';
 import Landing from './components/Landing/Landing';
 import Services from './components/Services/Services';
 import Info from "./components/Info/Info"
+import Achieve from './components/Achieve/Achieve';
+import Recent from './components/Recent/Recent';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -27,6 +30,9 @@ function App() {
       <Landing/>
       <Services/>
       <Info/>
+      <Achieve/>
+      <Recent/>
+      <Footer/>
       <button id="ichat" onClick={show}></button>
       <label className='show' htmlFor='ichat'>
         <BsFillChatFill />
