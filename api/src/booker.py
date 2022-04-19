@@ -1,12 +1,15 @@
 from datetime import datetime
 from dateutil.parser import parser
-from database import Database
-from appointment import Appointment
+from src.database import Database
+from src.appointment import Appointment
 
 
 class Booker:
     def __init__(self, db: Database) -> None:
         self.db = db
+
+    def __init__(self, db_name: str) -> None:
+        self.db = Database.instance(db_name)
 
     def _check_valid_date(self, date: str, time: str = "") -> bool:
         try:
@@ -32,7 +35,7 @@ class Booker:
     def get_appointments(self) -> tuple:
         sql_statment = """SELECT * FROM appointment WHERE date >= date('now', 'start of day') """.format(
             today=datetime.today().date())
-
+        print(self.db.db_name)
         res = self.db.query(sql_statment)
         appointments = []
         for app in res:
