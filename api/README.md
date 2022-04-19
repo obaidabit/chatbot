@@ -7,7 +7,7 @@ Simple chatbot for IT company, build for provide high customer service
 Create python virtual environment recommand python 3.7.\*
 
 ```
-pip -3.7 -m venv venv
+pip -m venv venv
 ```
 
 Activate virtual environment
@@ -17,7 +17,7 @@ linux : `venv/Scripts/activate`
 Install all dependancies
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Run the application
