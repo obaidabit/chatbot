@@ -1,87 +1,113 @@
+import os.path
 import pandas
 import joblib
 import random
+from src.booker import Booker
 from nltk_utils import tokenize, lemmatize, bag_of_words
-from nltk.corpus import stopwords
 from sklearn.neural_network import MLPClassifier
-import os.path
+
 
 class TrainModel:
-	def __init__(self,intents_name:str):
-		self.IGNORE_WORDS = ["?", ".", "!"]
-		print("Reading intents file")
+    def __init__(self, intents_name: str):
+        self.IGNORE_WORDS = ["?", ".", "!"]
+        print("Reading intents file")
 
-		self.intents = pandas.read_json(intents_name)
-		self.all_words = []
-		self.tags = []
-		self.word_tag = []
-		self.model = None
+        self.intents = pandas.read_json(intents_name)
+        self.all_words = []
+        self.tags = []
+        self.word_tag = []
+        self.model = None
 
-		self._setup()
-		print("Model setup complate")
+        self._setup()
+        print("Model setup complate")
 
-	def _setup(self):
-		for intent in self.intents["intents"]:
-		    tag = intent["tag"]
-		    self.tags.append(tag)
-		    for pattern in intent["patterns"]:
-		        words = tokenize(pattern)
-		        self.all_words.extend(words)
-		        self.word_tag.append((words, tag))
+    def _setup(self):
+        for intent in self.intents["intents"]:
+            tag = intent["tag"]
+            self.tags.append(tag)
+            for pattern in intent["patterns"]:
+                words = tokenize(pattern)
+                self.all_words.extend(words)
+                self.word_tag.append((words, tag))
 
-		self.all_words = [lemmatize(word) for word in self.all_words if word not in self.IGNORE_WORDS]
-		self.all_words = sorted(set(self.all_words))
-		self.tags = sorted(set(self.tags))
+        self.all_words = [
+            lemmatize(word) for word in self.all_words if word not in self.IGNORE_WORDS]
+        self.all_words = sorted(set(self.all_words))
+        self.tags = sorted(set(self.tags))
 
-	def train(self,model_file:str = None) -> MLPClassifier:
-		if(model_file):
-			self.model = joblib.load("data.joblib")
-			return model
+    def train(self, model_file: str = None) -> MLPClassifier:
+        if(model_file and os.path.isfile(model_file)):
+            self.model = joblib.load(model_file)
+            return self.model
 
-		print("Setting up trainning data")
-		X_train = []
-		y_train = []
-		for (pattern_sentence, tag) in self.word_tag:
-		    bag = bag_of_words(pattern_sentence, self.all_words)
-		    X_train.append(bag)
-		    label = self.tags.index(tag)
-		    y_train.append(label)
+        print("Setting up trainning data")
+        X_train = []
+        y_train = []
+        for (pattern_sentence, tag) in self.word_tag:
+            bag = bag_of_words(pattern_sentence, self.all_words)
+            X_train.append(bag)
+            label = self.tags.index(tag)
+            y_train.append(label)
 
-		print("Trainning Model ...") 
-		self.model = MLPClassifier(hidden_layer_sizes=(8,), batch_size=8)
-		self.model.fit(X_train, y_train)
-		print("Model trainning done.")
+        print("Trainning Model ...")
+        self.model = MLPClassifier(hidden_layer_sizes=(8,), batch_size=8)
+        self.model.fit(X_train, y_train)
+        print("Model trainning done.")
 
-		return self.model
+        if(not model_file):
+            self.save_to_file()
 
-	def save_to_file(self):
-		joblib.dump(self.model, "model.joblib")
-		print("File saved. file: model.joblib")
+        return self.model
+
+    def save_to_file(self):
+        joblib.dump(self.model, "model.joblib")
+        print("File saved. file: model.joblib")
+
 
 class Chatbot:
-	def __init__(self):
-		self.model = None
-		self.intents = None
-		self.all_words = []
-		self.tags = []
+    def __init__(self, intents_file, train: bool = False, model_file: str = "model.joblib"):
+        self.model = None
+        self.intents = None
+        self.all_words = []
+        self.tags = []
+        self.train = train
+        self.intents = intents_file
+        self.model_file = model_file
 
-	def setup(self):
-		tm = TrainModel("intents.json")
-		self.model = tm.train()
-		self.all_words = tm.all_words
-		self.tags = tm.tags
-		self.intents = tm.intents
+    def setup(self):
+        tm = TrainModel(self.intents)
 
-	def predict(self,sentence:str) -> any:
-		tokens = tokenize(sentence)
-		X = bag_of_words(tokens,self.all_words)
-		X = X.reshape(1, X.shape[0])
-		prediction = self.model.predict(X)
+        if not self.train:
+            self.model = tm.train(self.model_file)
+        else:
+            self.model = tm.train()
 
-		tag = self.tags[prediction[0]]
+        self.all_words = tm.all_words
+        self.tags = tm.tags
+        self.intents = tm.intents
 
-		answer = "Sorry I did't get that."
-		for intent in self.intents["intents"]:
-			if tag == intent["tag"]:
-				answer =  random.choice(intent['responses'])
-		return answer
+    def predict(self, sentence: str) -> any:
+        tokens = tokenize(sentence)
+        X = bag_of_words(tokens, self.all_words)
+        X = X.reshape(1, X.shape[0])
+        prediction = self.model.predict(X)
+
+        tag = self.tags[prediction[0]]
+
+        answer = {"answer": "Sorry I did't get that."}
+
+        for intent in self.intents["intents"]:
+            if tag == intent["tag"] and len(intent['responses']) > 0:
+                answer["answer"] = random.choice(intent['responses'])
+        if tag == 'appoitment':
+            book = Booker(":memory:")
+            answer["answer"] = "Here is the available Dates"
+            apps = []
+            for i in book.get_appointments():
+                apps.append(i.toDict())
+            answer["appointments"] = apps
+
+        print("THE tag is  ------------------------------- " + tag)
+        print("DEBUG -------------------------------------- ")
+        print(answer)
+        return answer

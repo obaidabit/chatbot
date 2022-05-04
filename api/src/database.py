@@ -18,11 +18,12 @@ class Database:
     def _setup_database(self, db_name: str) -> None:
         self.db_name = db_name
         try:
-            self.conn = sqlite3.connect(db_name)
+            self.conn = sqlite3.connect(db_name, check_same_thread=False)
             self._create_tables_(self)
             self._insert_data_(self)
         except Error as e:
             print(e)
+            print('SQLite error: %s' % (' '.join(e.args)))
             self.conn.close()
 
     def _create_tables_(self) -> None:
@@ -39,14 +40,13 @@ class Database:
         self.conn.executescript(sql_statment)
         self.conn.commit()
 
-    # TODO: need to fix SQL Injection
     def insert(self, sql_statment) -> None:
         try:
             self.conn.execute(sql_statment)
             self.conn.commit()
         except Error:
             print("SQL ERROR : Could not insert values")
-            print(Error)
+            print('SQLite error: %s' % (' '.join(Error.args)))
 
     def query(self, sql_statment: str) -> list:
         try:
@@ -54,4 +54,4 @@ class Database:
             return cur.fetchall()
         except Error:
             print("SQL ERROR: Could not query")
-            print(Error)
+            print('SQLite error: %s' % (' '.join(Error.args)))

@@ -35,7 +35,7 @@ class Booker:
     def get_appointments(self) -> tuple:
         sql_statment = """SELECT * FROM appointment WHERE date >= date('now', 'start of day') """.format(
             today=datetime.today().date())
-        print(self.db.db_name)
+
         res = self.db.query(sql_statment)
         appointments = []
         for app in res:

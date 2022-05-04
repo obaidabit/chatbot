@@ -3,8 +3,9 @@ import time
 from chatbot import Chatbot
 
 app = Flask(__name__)
-chatbot = Chatbot()
+chatbot = Chatbot(intents_file="intents.json", train=False)
 chatbot.setup()
+
 
 @app.route("/get", methods=["POST"])
 def get_current_time():
@@ -12,7 +13,8 @@ def get_current_time():
     # print(request_data)
     msg = request_data['msg']
     answer = chatbot.predict(msg)
-    return {"msg": answer}
+
+    return {"msg": answer["answer"], "data": answer}
 
 
 if __name__ == "__main__":

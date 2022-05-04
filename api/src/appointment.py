@@ -10,3 +10,13 @@ class Appointment:
         self.customer_id = customer_id
         self.department_id = department_id
         self.project_id = project_id
+
+    def toDict(self):
+        return {
+            "id": self.id,
+            "date": self.date,
+            "start_time": self.start_time.strftime("%H:%M"),
+            "customer_id": self.customer_id,
+            "department_id": self.department_id,
+            "project_id": self.project_id
+        }
