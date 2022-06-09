@@ -50,7 +50,8 @@ class TrainModel:
             y_train.append(label)
 
         print("Trainning Model ...")
-        self.model = MLPClassifier(hidden_layer_sizes=(8,), batch_size=8)
+        self.model = MLPClassifier(
+            hidden_layer_sizes=(8,), batch_size=8, max_iter=500)
         self.model.fit(X_train, y_train)
         print("Model trainning done.")
 

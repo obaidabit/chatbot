@@ -65,7 +65,7 @@
         "Who we are?"
       ],
       "responses": [
-        "IT Company \nNY 3045 \nMain Street \nWe are specialized in developing HIGH QUALITY software that meets customer vision and future\nWe have a long history in the field and our work talk instead of us."
+        "IT Company <br>NY 3045 <br>Main Street <br>We are specialized in developing HIGH QUALITY software that meets customer vision and future <br>We have a long history in the field and our work talk instead of us."
       ]
     },
     {
@@ -90,7 +90,7 @@
         "What are the work hours?"
       ],
       "responses": [
-        "We are open from 9:00am to 5:30pm \nfive days a week from sunday to thursday."
+        "We are open from 9:00am to 5:30pm <br> five days a week from sunday to thursday."
       ]
     },
     {
@@ -103,8 +103,16 @@
         "what is your next free appointment",
         "I want to meet you",
         "how could I make an appointment?",
-        "set new appointment",
-        "I want to talk to you"
+        "set new appointment"
+      ],
+      "responses": []
+    },
+    {
+      "tag": "customer_appoitment",
+      "patterns": [
+        "I would like to know when my appointment is",
+        "what is the date of my appointment",
+        "can you remind me with our appointment"
       ],
       "responses": []
     },
@@ -120,6 +128,162 @@
         "how much it cost for"
       ],
       "responses": []
+    },
+    {
+      "tag": "support",
+      "patterns": [
+        "I would like to talk to you.",
+        "how could I contact you",
+        "I need your support",
+        "I am in a trouble",
+        "I need your help",
+        "some help",
+        "I have a problem",
+        "I can't find help",
+        "can someone help me",
+        "I want to get in touch with you",
+        "contact us page"
+      ],
+      "responses": [
+        "You can contact us on this page <a href='contact'>Contact us</a>"
+      ]
+    },
+    {
+      "tag": "showcase",
+      "patterns": [
+        "where could I find your work?",
+        "I want to see your work",
+        "I want to see your projects",
+        "I want to see an example of your work",
+        "do you have a showcase page?",
+        "what is your latest work?",
+        "tell me about your work",
+        "tell me about your projects",
+        "project page"
+      ],
+      "responses": [
+        "You can see our projects on this page <a href='project'>Projects</a>"
+      ]
+    },
+    {
+      "tag": "aboutus",
+      "patterns": [
+        "I would like to know more about you",
+        "I need more information about you",
+        "tell me your story",
+        "tell me your history",
+        "I want more details about you",
+        "full information about the company",
+        "the story of the company",
+        "about us page"
+      ],
+      "responses": [
+        "You can know more about us on this page <a href='about-us'>About Us</a>"
+      ]
+    },
+    {
+      "tag": "login",
+      "patterns": ["I want to login", "login page"],
+      "responses": ["You can login on this page <a href='login'>Login</a>"]
+    },
+    {
+      "tag": "signup",
+      "patterns": [
+        "I want to signup",
+        "I want to start working with you",
+        "I want to register",
+        "register page",
+        "signup page"
+      ],
+      "responses": ["You can signup on this page <a href='login'>Signup</a>"]
+    },
+    {
+      "tag": "complaine",
+      "patterns": [
+        "I have a complaine",
+        "I hate working with you",
+        "I hate you",
+        "you are not professional",
+        "working with you was not convenient",
+        "I don't want to work with you any more",
+        "you suck",
+        "no one answer me",
+        "nothing work with you",
+        "I regret working with you",
+        "I should gone with another company",
+        "you have a serious problem",
+        "I don't like you",
+        "I don't recommand you",
+        "can I tell you about some issues",
+        "you have issues with your workflow",
+        "I did not have a pleasant experience workin with you"
+      ],
+      "responses": [
+        "We are sorry to hear that, you can give your feeds on this page <a href='contact'>Contact</a>",
+        "We will try our best to improve our services, you can give your feeds on this page <a href='contact'>Contact</a>"
+      ]
+    },
+    {
+      "tag": "suggestion",
+      "patterns": [
+        "I have a suggestion",
+        "I suggest to",
+        "can you guys make that improve",
+        "I think you can improve",
+        "working with you was not convenient",
+        "I have some feed",
+        "I see opportunities for improvements",
+        "can you make some improvements"
+      ],
+      "responses": [
+        "We would like to know that, you can give your feeds on this page <a href='contact'>Contact</a>",
+        "We constantly working to imporve, you can give your feeds on this page <a href='contact'>Contact</a>"
+      ]
+    },
+    {
+      "tag": "compliment",
+      "patterns": [
+        "You are awesome",
+        "I like you",
+        "you are the best",
+        "I love you",
+        "I would like to work with in the future",
+        "I am so happy to be working with you",
+        "I will always work with you",
+        "I don't know where have you been guys",
+        "You have the best service",
+        "best company",
+        "best IT",
+        "I am grateful to work with you",
+        "you are the nicest people",
+        "I will recommand you",
+        "I have pleasant experience working with you",
+        "It was an honor to work with you"
+      ],
+      "responses": [
+        "We are so happy to hear that",
+        "Company without happy customer, company without future",
+        "We were happy to work with you too",
+        "It was an honor to meet you, If you have an feed to make our service even better you can go to this page <a href='contact'>Contact</a>"
+      ]
+    },
+    {
+      "tag": "temp_sentences",
+      "patterns": [
+        "I would like to tell you something",
+        "listent to me",
+        "We need to talk about something",
+        "Ok",
+        "do you feel me",
+        "you know",
+        "you hear me",
+        "hear me out",
+        "check this out",
+        "I would like you to know something",
+        "are you ready",
+        "You guys need to hear that"
+      ],
+      "responses": ["Ok", "Yes", "Tell me"]
     }
   ]
 }
