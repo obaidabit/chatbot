@@ -2,6 +2,8 @@ import os.path
 import pandas
 import joblib
 import random
+
+from sklearn.model_selection import GridSearchCV
 from src.booker import Booker
 from nltk_utils import tokenize, lemmatize, bag_of_words
 from sklearn.neural_network import MLPClassifier
@@ -17,9 +19,24 @@ class TrainModel:
         self.tags = []
         self.word_tag = []
         self.model = None
+        self.X_train = None
+        self.y_train = None
 
         self._setup()
         print("Model setup complate")
+
+    def findBestParams(self):
+        layers = [(i,) for i in range(1, 100)]
+        # layers = [(33,), (55,), (75,), (92,)]
+        activation = ['identity', 'logistic', 'tanh', 'relu']
+        solver = ['lbfgs', 'sgd', 'adam']
+        batch_size = [8, 'auto']
+        param_grid = dict(hidden_layer_sizes=layers,
+                          activation=activation, solver=solver, batch_size=batch_size)
+        grid = GridSearchCV(estimator=self.model, param_grid=param_grid)
+        grid.fit(self.X_train, self.y_train)
+        print("------------------------------------------------------")
+        print([grid.best_estimator_, grid.best_params_, grid.best_score_])
 
     def _setup(self):
         for intent in self.intents["intents"]:
@@ -51,11 +68,14 @@ class TrainModel:
 
         print("Trainning Model ...")
         self.model = MLPClassifier(
-            hidden_layer_sizes=(8,), batch_size=8, max_iter=500)
+            hidden_layer_sizes=(33,), batch_size=8, max_iter=500)
         self.model.fit(X_train, y_train)
         print("Model trainning done.")
 
-        if(not model_file):
+        self.X_train = X_train
+        self.y_train = y_train
+
+        if(model_file != None):
             self.save_to_file()
 
         return self.model

@@ -3,7 +3,7 @@ import time
 from chatbot import Chatbot
 
 app = Flask(__name__)
-chatbot = Chatbot(intents_file="intents.json", train=False)
+chatbot = Chatbot(intents_file="intents.json", train=True)
 chatbot.setup()
 
 
