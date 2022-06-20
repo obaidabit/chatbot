@@ -1,0 +1,63 @@
+{
+  "header": {
+    "projects": "Projects",
+    "contact": "Contact",
+    "aboutus": "About Us",
+    "language": {
+      "en": "EN",
+      "ar": "AR"
+    }
+  },
+  "landing": {
+    "p1": "We Provied Amazing",
+    "p2": "Development & IT Services",
+    "p3": "For Start-ups & Mid-sized Company",
+    "btn1": "Learn More",
+    "btn2": "Get to Touch"
+  },
+  "services": {
+    "header": "Our Services",
+    "section1": {
+      "h3": "Mobile App",
+      "p": "Specializes in designing beautiful applications for iPhone and Android devices"
+    },
+    "section2": {
+      "h3": "Web Develop",
+      "p": "Specializes in the design of websites, automation systems and web software"
+    },
+    "section3": {
+      "h3": "UX & UI Design",
+      "p": "Such as logo design, photos, and any other visuals to communicate your brand"
+    },
+    "section4": {
+      "h3": "Server Managment",
+      "p": "Monitoring and maintenance required for servers to operate reliably and at optimal performance levels"
+    }
+  },
+  "info": {
+    "h3": "We love what we do & we do it proudly!",
+    "p": "With great enthusiasm, we build great products. We always looking for new technologies to adapt and build unique, accurate and very efficient apps, every bit counts, since 2003!"
+  },
+  "achieve": {
+    "h2": "ACHIEVEMENTES",
+    "workDone": "Works Done",
+    "workHours": "Working Hours",
+    "lineOfCode": "Lines of Code",
+    "clients": "Happy Clients"
+  },
+  "recent": {
+    "h2": "Recent Project"
+  },
+  "footer": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "contact": "Contact",
+    "aboutus": "About Us",
+    "rights": "All rights reserved © 2003-2022"
+  },
+  "chat": {
+    "h4": "Company Chat",
+    "p": "Welcome to this chat, What can we help you with?",
+    "input": "Write a message"
+  }
+}

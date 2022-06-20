@@ -2,7 +2,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { MdSend } from "react-icons/md";
 import "./Chat.css";
 
-function Chat() {
+function Chat(props) {
   function MsgSubmit(e) {
     e.preventDefault();
     const MsgText = e.target[0].value;
@@ -33,7 +33,7 @@ function Chat() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ msg: text }),
+        body: JSON.stringify({ msg: text, language: props.language }),
       });
       //console.log(response)
       const data = await response.json();
@@ -56,7 +56,7 @@ function Chat() {
   return (
     <div className="chat" data-show="false">
       <header>
-        <h4>Company Chat</h4>
+        <h4>{props.value.h4}</h4>
         <a className="close" onClick={getDate}>
           {" "}
           <AiOutlineClose />{" "}
@@ -67,10 +67,7 @@ function Chat() {
           <img src="./img/boy.png"></img>
           <div className="msg-details msg-bubble">
             <h4>Chatbot</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              harum !
-            </p>
+            <p>{props.value.p}</p>
             <span>{getDate()}</span>
           </div>
         </div>
@@ -79,7 +76,7 @@ function Chat() {
         <input
           className="msg-content"
           type="text"
-          placeholder="Write a message"
+          placeholder={props.value.input}
         ></input>
         <button className="msg-submit" type="submit">
           <MdSend />

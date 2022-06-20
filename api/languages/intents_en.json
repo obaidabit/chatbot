@@ -208,7 +208,7 @@
         "I don't want to work with you any more",
         "you suck",
         "no one answer me",
-        "nothing work with you",
+        "nothing work with me",
         "I regret working with you",
         "I should gone with another company",
         "you have a serious problem",
@@ -216,7 +216,7 @@
         "I don't recommand you",
         "can I tell you about some issues",
         "you have issues with your workflow",
-        "I did not have a pleasant experience workin with you"
+        "I did not have a pleasant experience working with you"
       ],
       "responses": [
         "We are sorry to hear that, you can give your feeds on this page <a href='contact'>Contact</a>",
@@ -230,7 +230,6 @@
         "I suggest to",
         "can you guys make that improve",
         "I think you can improve",
-        "working with you was not convenient",
         "I have some feed",
         "I see opportunities for improvements",
         "can you make some improvements"
