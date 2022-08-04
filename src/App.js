@@ -12,6 +12,7 @@ import arabic from "./translation/arabic.json";
 import english from "./translation/english.json";
 import { useEffect, useState } from "react";
 
+
 function App() {
   const [language, setLanguage] = useState("en");
   const [translation, setTranslation] = useState(english);
@@ -33,8 +34,7 @@ function App() {
       document.querySelector("html").lang = "en";
     } else {
       setTranslation(arabic);
-      document.querySelector("html").lang = "ar";
-    }
+      document.querySelector("html").lang = "ar";}
   }, [language]);
 
   return (
@@ -50,7 +50,7 @@ function App() {
       <label className="show" htmlFor="ichat">
         <BsFillChatFill />
       </label>
-      <Chat value={translation.chat} language={language} />
+      <Chat value={translation.chat} language={language} show = {show} />
     </div>
   );
 }

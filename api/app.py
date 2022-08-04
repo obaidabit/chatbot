@@ -13,7 +13,8 @@ def get_current_time():
     # print(request_data)
     msg = request_data['msg']
     language = request_data['language']
-    answer = chatbot.predict(msg,language)
+    state = request_data['state']
+    answer = chatbot.predict(msg,state,language)
 
     return {"msg": answer["answer"], "data": answer}
 

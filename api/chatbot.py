@@ -1,5 +1,5 @@
 import random
-
+from src.appointment import Appointment
 from src.booker import Booker
 from nltk_utils import tokenize, bag_of_words
 from model import Model
@@ -27,7 +27,7 @@ class Chatbot:
                 "intents": trainModel.intents
             })
 
-    def predict(self, sentence: str, language: str = "en") -> any:
+    def predict(self, sentence: str,state:str,language: str = "en",) -> any:
 
         for m in self.models:
             if m['language'] == language:
@@ -46,15 +46,21 @@ class Chatbot:
         answer = {"answer": "Sorry I did't get that."}
 
         for intent in intents["intents"]:
-            if tag == intent["tag"] and len(intent['responses']) > 0:
+            if tag == intent["tag"] and len(intent['responses']) > 0 and state == "None":
                 answer["answer"] = random.choice(intent['responses'])
+                answer["tag"] = 'None'
         if tag == 'appoitment':
             book = Booker(":memory:")
             answer["answer"] = "Here is the available Dates"
+            answer["tag"] = 'appoitment'
             apps = []
             for i in book.get_appointments():
                 apps.append(i.toDict())
             answer["appointments"] = apps
+
+        if state == "appo" :
+            appo = Appointment(8,sentence,"11:00",1,2,0)
+            return Booker
 
         print("THE tag is  ------------------------------- " + tag)
         print("DEBUG -------------------------------------- ")
