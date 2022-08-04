@@ -1,4 +1,3 @@
-import "./Landing.css";
 
 function Landing(props) {
   return (
@@ -15,7 +14,7 @@ function Landing(props) {
             <a href="#">{props.value.btn2}</a>
           </div>
         </div>
-        <img src="./img/landing.svg"></img>
+        <img src="./img/landing.svg" alt=""></img>
       </div>
     </div>
   );

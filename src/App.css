@@ -1,11 +1,18 @@
+@import url("./components/Header/Header.css");
+@import url("./components/Landing/Landing.css");
+@import url("./components/Services/Services.css");
+@import url("./components/Info/Info.css");
+@import url("./components/Achieve/Achieve.css");
+@import url("./components/Recent/Recent.css");
+@import url("./components/Footer/Footer.css");
+@import url("./components/Chat/Chat.css");
+@import url("./components/Chat/Load.css");
 .App {
   text-align: center;
-
 }
 .App button{
   display: none;
 }
-
 .show{
   position: fixed;
   bottom: 20px;

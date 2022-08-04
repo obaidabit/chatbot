@@ -12,7 +12,6 @@ import arabic from "./translation/arabic.json";
 import english from "./translation/english.json";
 import { useEffect, useState } from "react";
 
-
 function App() {
   const [language, setLanguage] = useState("en");
   const [translation, setTranslation] = useState(english);
@@ -32,9 +31,20 @@ function App() {
     if (language === "en") {
       setTranslation(english);
       document.querySelector("html").lang = "en";
+      if(document.styleSheets.length>14){
+      document.styleSheets[14].disabled = true} 
     } else {
       setTranslation(arabic);
-      document.querySelector("html").lang = "ar";}
+      document.querySelector("html").lang = "ar";
+      let links = document.querySelectorAll("link")
+      if(links.length == 4){
+        let link =document.createElement("link")
+        link.rel = "stylesheet"
+        link.href = "./style-rtl.css"
+        document.querySelector("head").appendChild(link) 
+      }
+      else document.styleSheets[14].disabled = false  
+      }
   }, [language]);
 
   return (

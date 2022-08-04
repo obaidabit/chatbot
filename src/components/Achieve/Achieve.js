@@ -1,4 +1,3 @@
-import "./Achieve.css";
 
 function Achieve(props) {
   return (

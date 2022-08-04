@@ -1,4 +1,3 @@
-import "./Header.css";
 import { AiOutlineMenu } from "react-icons/ai";
 function Header(props) {
   return (

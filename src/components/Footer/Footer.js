@@ -1,10 +1,8 @@
-import "./Footer.css";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaTelegramPlane,
   FaTwitter,
-  FaWhatsapp,
 } from "react-icons/fa";
 import { MdCall } from "react-icons/md";
 import { RiFacebookFill } from "react-icons/ri";

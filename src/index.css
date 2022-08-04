@@ -1,3 +1,4 @@
+@import url(./App.css);
 :root {
   --primary-color: #394867;
   --secondary-color: #f1f6f9;
@@ -15,6 +16,16 @@
 
 html {
   scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+  width: 10px;
+}
+html::-webkit-scrollbar-track{
+  background-color: var(--secondary-color);
+}
+html::-webkit-scrollbar-thumb{
+  background-color: #394867d2;
+  border-radius: 6px;
 }
 body {
   font-family: "Work Sans", sans-serif;
