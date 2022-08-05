@@ -2,6 +2,7 @@
 
 function Msg (props){
     const {side,key,sender,msg,tag} = props
+    
     function getDate(date){
         const houre = new Date().getHours()
         const h= houre >12 ? "0"+((houre -1) %12 +1) :houre == 0 ? "12" : "0" + houre

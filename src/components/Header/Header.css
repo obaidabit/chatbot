@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.header .container a {
+.header .container .home {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,8 @@
   height: 60px;
   font-weight: medium;
 }
-.header .container a .logo {
+
+.header .container .home .logo {
   position: relative;
   margin:0 10px;
   width: 30px;
@@ -27,7 +28,7 @@
   border: 2px solid white;
   border-radius: 50%;
 }
-.header .container a .logo::before {
+.header .container .home .logo::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -84,10 +85,12 @@
   border-radius: 2px;
   transition: 0.3s;
 }
-.header .container .nav a:hover {
+.header .container .nav a:hover,
+.header .container .nav .active {
   color: #9ba4b4;
 }
-.header .container .nav a:hover::before {
+.header .container .nav a:hover::before,
+.header .container .nav .active::before {
   width: calc(100% - 30px);
 }
 .header .container button {

@@ -1,29 +1,34 @@
-import { BsFillChatFill } from "react-icons/bs";
+import {BrowserRouter , Routes,Route} from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
-import Chat from "./components/Chat/Chat";
 import Header from "./components/Header/Header";
-import Landing from "./components/Landing/Landing";
-import Services from "./components/Services/Services";
-import Info from "./components/Info/Info";
-import Achieve from "./components/Achieve/Achieve";
-import Recent from "./components/Recent/Recent";
+import Home from "./pages/Home";
+import About from "./pages/About"
+import Project from "./pages/Project"
+import Contact from "./pages/Contact"
 import Footer from "./components/Footer/Footer";
+import Chat from "./components/Chat/Chat";
+import { BsFillChatFill } from "react-icons/bs";
 import arabic from "./translation/arabic.json";
 import english from "./translation/english.json";
-import { useEffect, useState } from "react";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Error from "./pages/Error";
+
 
 function App() {
   const [language, setLanguage] = useState("en");
   const [translation, setTranslation] = useState(english);
+  const ChatRef = useRef(null)
 
   function show(e) {
-    const chat = document.querySelector(".chat");
-    if (chat.dataset.show === "false") {
-      chat.classList.add("chat-show");
-      chat.dataset.show = "true";
+   //const chat = document.querySelector(".chat");
+    if (ChatRef.current.dataset.show === "false") {
+      ChatRef.current.classList.add("chat-show");
+      ChatRef.current.dataset.show = "true";
     } else {
-      chat.classList.remove("chat-show");
-      chat.dataset.show = "false";
+      ChatRef.current.classList.remove("chat-show");
+      ChatRef.current.dataset.show = "false";
     }
   }
 
@@ -48,20 +53,26 @@ function App() {
   }, [language]);
 
   return (
-    <div className="App" id="app">
-      <Header value={translation.header} changeLanguage={setLanguage} />
-      <Landing value={translation.landing} />
-      <Services value={translation.services} />
-      <Info value={translation.info} />
-      <Achieve value={translation.achieve} />
-      <Recent value={translation.recent} />
-      <Footer value={translation.footer} />
-      <button id="ichat" onClick={show}></button>
-      <label className="show" htmlFor="ichat">
-        <BsFillChatFill />
-      </label>
-      <Chat value={translation.chat} language={language} show = {show} />
-    </div>
+    <BrowserRouter>
+      <div className="App" id="app">
+        <Header value={translation.header} changeLanguage={setLanguage} />
+        <Routes>
+          <Route path = "/" exact element = {<Home lang = {language}/>}/>
+          <Route path = "/about"  element = {<About/>}/>
+          <Route path = "/project"  element = {<Project/>}/>
+          <Route path = "/contact"  element = {<Contact/>}/>
+          <Route path = "/login"  element = {<Login/>}/>
+          <Route path = "/signup"  element = {<Signup/>}/>
+          <Route path = "*"  element = {<Error/>}/>
+        </Routes>
+        <Footer value={translation.footer} />
+        <button id="ichat" onClick={show}></button>
+        <label className="show" htmlFor="ichat">
+          <BsFillChatFill />
+        </label>
+          <Chat value={translation.chat} language={language} show = {show} ChatRef = {ChatRef} />
+      </div>
+    </BrowserRouter>
   );
 }
 

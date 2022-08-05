@@ -1,4 +1,4 @@
-
+import {Link} from "react-router-dom"
 function Landing(props) {
   return (
     <div className="landing">
@@ -11,7 +11,7 @@ function Landing(props) {
           </div>
           <div className="link">
             <a href="#">{props.value.btn1}</a>
-            <a href="#">{props.value.btn2}</a>
+            <Link to="/contact">{props.value.btn2}</Link>
           </div>
         </div>
         <img src="./img/landing.svg" alt=""></img>

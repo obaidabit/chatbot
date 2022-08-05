@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 import {
   FaMapMarkerAlt,
   FaEnvelope,
@@ -23,10 +24,10 @@ function Footer(props) {
             <a href="#">{props.value.privacy}</a>
           </li>
           <li>
-            <a href="#">{props.value.contact}</a>
+            <Link to="/contact">{props.value.contact}</Link>
           </li>
           <li>
-            <a href="#">{props.value.aboutus}</a>
+            <Link to="/about">{props.value.aboutus}</Link>
           </li>
         </ul>
         <div className="box">

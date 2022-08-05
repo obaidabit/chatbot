@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useState, useEffect } from 'react' 
 import Msg from './Msg'
 import {AiOutlineClose} from 'react-icons/ai'
@@ -9,19 +9,30 @@ import Load from "./Load.js"
 
 
 function Chat(props){
+    const [msg,setMsg] = useState([{sender:"chatbot",side:"left",msg:props.value.p,appointments : false}])
     const [startDate,setStartDate] = useState(false)
-    const [msg,setMsg] = useState([{sender : "chatbot",side : "left",msg : props.value.p,appointments : false}])
     const [MSubmit,setSubmit] = useState(false)
     const [appo,setAppo] = useState([])
     const [isLoading,setLoading] = useState(false)
+    
+    const {language,show,ChatRef} = props
 
-    const {language,show} = props
-
+    //for Scroll down when adding a message
     useEffect(() => {
         const box = document.querySelector(".chat .msg-box")
         box.scrollTop +=1000
     },[msg,isLoading])
 
+    //for clear message in Gui when switvh lang
+    useEffect(() =>{
+        /* const chat = document.querySelector(".chat"); */
+        ChatRef.current.classList.remove("chat-show");
+        ChatRef.current.dataset.show = "false";
+        setMsg([{sender:"chatbot",side:"left",msg:props.value.p,appointments : false}])
+
+    },[language])
+
+    //for add message to msg and send message to server
     function MsgSubmit(e){
         e.preventDefault()   
         setSubmit(true)
@@ -35,25 +46,25 @@ function Chat(props){
                     setLoading(true)
                     setTimeout(() => {
                         setLoading(false)
-                        setMsg(oldMsg => [...oldMsg,{sender : "chatbot",side : "left",msg : `Are you sure you want to book an appointment today ${new Date(startDate).toISOString().slice(0,10)} ? ` ,appointments : false}])
-                        setMsg(oldMsg => [...oldMsg,{sender : "chatbot",side : "left",msg : `Please answer with Yes or No ` ,appointments : false}])
+                        setMsg(oldMsg => [...oldMsg,{sender : "chatbot",side : "left",msg : `${props.value.question} ${new Date(startDate).toISOString().slice(0,10)} ? ` ,appointments : false}])
+                        setMsg(oldMsg => [...oldMsg,{sender : "chatbot",side : "left",msg : props.value.confirm ,appointments : false}])
                     }, 500);
                 }, 500);
             }
         } 
-        else if(MsgText.toLowerCase() === "yes" && msg[length - 3].appointments === true){
+        else if(MsgText.toLowerCase() === "yes" || MsgText.toLowerCase() === "نعم"  && msg[length - 3].appointments === true){
                 console.log("yes")
                 setMsg(oldMsg => [...oldMsg,{sender : "user",side : "right",msg : MsgText ,appointments : false}])
                 botResponse(new Date(startDate).toDateString(),"appo")
             }
-        else if(MsgText.toLowerCase() === "no"  && msg[length -3].appointments === true){
+        else if(MsgText.toLowerCase() === "no" || MsgText.toLowerCase() === "لا"  && msg[length -3].appointments === true){
                 console.log("no")
                 setMsg(oldMsg => [...oldMsg,{sender : "user",side : "right",msg : MsgText ,appointments : false}])
                 setTimeout(() => {
                     setLoading(true)
                     setTimeout(() => {
                         setLoading(false)
-                        setMsg(oldMsg => [...oldMsg,{sender : "chatbot",side : "left",msg : "thanks for answer" ,appointments : false}])
+                        setMsg(oldMsg => [...oldMsg,{sender : "chatbot",side : "left",msg : props.value.thank ,appointments : false}])
                     }, 500);
                 }, 500);
             }
@@ -64,6 +75,7 @@ function Chat(props){
     e.target[0].value = ''
     }
 
+    //Send Msg and Fetch data from server and show data in interface 
     async function botResponse(text,state){
         try{
             setLoading(true)
@@ -87,7 +99,7 @@ function Chat(props){
                                 setAppo(oldAppo => [...oldAppo,new Date(date.date)])
                             }
                             setLoading(false)
-                            setMsg(oldMsg => [...oldMsg,{sender : "chatbot" , side : "left" , msg:"Please select the date from the calendar and then press the send button " ,appointments : true}])
+                            setMsg(oldMsg => [...oldMsg,{sender : "chatbot" , side : "left" , msg: props.value.tip ,appointments : true}])
                         },500)
                     }
                 }, 500);
@@ -98,13 +110,14 @@ function Chat(props){
         }
     }  
 
+    //for click button close 
     function close(e) { 
         show()
         setMsg([{sender:"chatbot",side:"left",msg:props.value.p,appointments : false}])
         }
 
     return(
-    <div className = "chat" data-show = "false">
+    <div className = "chat" data-show = "false" ref = {ChatRef}>
         <header>
             <h4>{props.value.h4}</h4>
             <a className = 'close' onClick = {close} > < AiOutlineClose /> </a>
@@ -113,6 +126,11 @@ function Chat(props){
             {
                 MSubmit?msg.map((e,key)=>{return (
                     
+                    key == 0?
+                    <div key = {key}>
+                    <Msg side = {e.side}  sender = {e.sender} msg = {props.value.p}   />
+                    </div>
+                    :
                     <div key = {key}>
                     <Msg side = {e.side}  sender = {e.sender} msg = {e.msg}   />
                     <style>

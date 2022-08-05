@@ -58,6 +58,10 @@
   "chat": {
     "h4": "Company Chat",
     "p": "Welcome to this chat, What can we help you with?",
-    "input": "Write a message"
+    "input": "Write a message",
+    "tip": "Please select the date from the calendar and then press the send button",
+    "question": "Are you sure you want to book an appointment today",
+    "confirm": "Please answer with Yes or No ",
+    "thank": "thanks for answer"
   }
 }
