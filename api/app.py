@@ -14,10 +14,9 @@ def get_current_time():
     msg = request_data['msg']
     language = request_data['language']
     state = request_data['state']
-    answer = chatbot.predict(msg,state,language)
-
+    answer = chatbot.predict(msg, state, language)
     return {"msg": answer["answer"], "data": answer}
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port="6000")
+    app.run(debug=False, port="6000")

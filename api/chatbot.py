@@ -27,7 +27,7 @@ class Chatbot:
                 "intents": trainModel.intents
             })
 
-    def predict(self, sentence: str,state:str,language: str = "en",) -> any:
+    def predict(self, sentence: str, state: str, language: str = "en",) -> any:
 
         for m in self.models:
             if m['language'] == language:
@@ -58,9 +58,15 @@ class Chatbot:
                 apps.append(i.toDict())
             answer["appointments"] = apps
 
-        if state == "appo" :
-            appo = Appointment(8,sentence,"11:00",1,2,0)
-            return Booker
+        if state == "appo":
+            appo = Appointment(8, sentence, "11:00", 1, 2, 0)
+            booker = Booker(":memory:")
+            result = booker.book(appo)
+            if result['status']:
+                answer['appoitment'] = appo.toDict()
+                answer['answer'] = result['msg']
+            else:
+                answer['answer'] = 'Unable to book an appointement try again.'
 
         print("THE tag is  ------------------------------- " + tag)
         print("DEBUG -------------------------------------- ")
