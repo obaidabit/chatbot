@@ -1,0 +1,40 @@
+.PLanding{
+  background-color: var(--primary-color);
+  min-height: 80vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media (max-width: 991px) {
+  .PLanding{
+    min-height: 54vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+.PLanding .container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--primary-color);
+
+}
+.PLanding .container .content{
+  color: var(--secondary-color);
+  font-weight: bold;
+  line-height: 1.7;
+  text-align: left;
+
+}
+.PLanding .container .content h2{
+  letter-spacing: 14px;
+  
+
+}
+.PLanding .container img{
+  max-width: 100%;
+}
+@media (max-width: 991px) {
+  .PLanding .container img{
+    width:400px
+  }
+}

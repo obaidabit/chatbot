@@ -79,7 +79,7 @@ function Chat(props){
     async function botResponse(text,state){
         try{
             setLoading(true)
-            fetch("/get", 
+            fetch("/api/get", 
             {   method : 'POST',
                 headers : {'Content-Type' : 'application/json'},
                 body: JSON.stringify({ msg: text, language: language,state:state })

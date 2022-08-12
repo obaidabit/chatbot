@@ -1,0 +1,83 @@
+.VProject{
+  background-color: var(--secondary-color);
+  padding-bottom: 100px;
+  padding-top: 50px;
+}
+.VProject .container .year {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+
+} 
+.VProject .container .year .year1 {
+  position: relative;
+  color: var(--section-color);
+  margin-right: 50px;
+  
+} 
+.VProject .container .year .year1::after{
+  content: "";
+  position: absolute;
+  top: 43px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 650px;
+  background-color: gray;
+  border-radius: 5px;
+
+}
+@media (max-width: 991px) {
+  .VProject .container .year .year1::after{
+    height:500px ;
+  
+  }
+}
+.VProject .container .projects{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px 50px;
+}
+@media (max-width: 991px) {
+  .VProject .container .projects{
+    justify-content: center;
+    gap: 20px;
+  }
+}
+.VProject .container .projects .project h2{
+  color: var(--section-color);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.VProject .container .projects .project h2 span{
+  color: var(--primary-color);
+  font-weight: normal;
+}
+@media (max-width: 991px) {
+  .VProject .container .projects .project h2{
+    font-size: 18px;
+  }
+  .VProject .container .projects .project h2 span{
+    font-size: 18px;
+  }
+}
+.VProject .container .projects .project .box{
+  overflow: hidden;
+}
+.VProject .container .projects .project img{
+  transition: var(--main-transition);
+  cursor: pointer;
+  max-width: 100%;
+}
+.VProject .container .projects .project img:hover{
+  transform: scale(1.2) rotate(5deg);
+}
+
+@media (max-width: 991px) {
+  .VProject .container .projects .project img{
+    width: 226px;
+  }
+}

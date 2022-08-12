@@ -7,6 +7,12 @@
     var(--secondary-color) 50%
   );
 }
+.not-active{
+  background : var(--secondary-color);
+}
+.header .container .isactive{
+  color : var(--primary-color);
+}
 .header .container,
 .header .container a,
 .header .container .nav,
@@ -100,4 +106,7 @@
   flex-direction:column ;
   }
 } 
+.chat .msg-box .msg-left .msg-details p{
+  text-align: right;
+}
 
