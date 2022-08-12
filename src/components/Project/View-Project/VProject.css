@@ -12,7 +12,7 @@
 .VProject .container .year .year1 {
   position: relative;
   color: var(--section-color);
-  margin-right: 50px;
+  margin:0px 25px;
   
 } 
 .VProject .container .year .year1::after{

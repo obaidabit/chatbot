@@ -1,4 +1,4 @@
-import {BrowserRouter ,HashRouter, Routes,Route,Navigate} from "react-router-dom"
+import {BrowserRouter , Routes,Route} from "react-router-dom"
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -59,7 +59,7 @@ function App() {
         <Routes>
           <Route path="/" exact element = {<Home lang = {language}/>}/>
           <Route path="/about"  element = {<About/>}/>
-          <Route path="/project"  element = {<Project/>}/>
+          <Route path="/project"  element = {<Project value={translation.projects}/>}/>
           <Route path="/contact"  element = {<Contact/>}/>
           <Route path="/login"  element = {<Login/>}/>
           <Route path="/signup"  element = {<Signup/>}/>

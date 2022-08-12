@@ -1,4 +1,4 @@
-function Button(){
+function Button(props){
   return(
     <>
     <style>
@@ -19,7 +19,7 @@ function Button(){
       }
       `}
     </style>
-      <a href="#">LET’S START A NEW PROJECT</a>
+      <a href="#">{props.text}</a>
     </>
   )
 }
