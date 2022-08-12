@@ -18,7 +18,7 @@ chatbot.setup()
 load_dotenv(".env")
 
 
-@app.route("/get", methods=["POST"])
+@app.route("/api/get", methods=["POST"])
 def get_current_time():
     request_data = json.loads(request.data)
     print(request_data)
