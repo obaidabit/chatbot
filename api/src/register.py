@@ -1,7 +1,8 @@
-from database import Database
-from customer import Customer
-from department import Department
-from project import Project
+from unittest import result
+from src.database import Database
+from src.customer import Customer
+from src.department import Department
+from src.project import Project
 
 
 class Register:
@@ -10,8 +11,8 @@ class Register:
 
     def save_customer(self, customer: Customer):
         if customer.id == 0 or customer.name == "":
-            return {"msg": "customer not registered missing data ( ID or Name)", "status": False}
-        sql_statment = "INSERT INTO customer(name,email,password) VALUES({name},{email},{password})".format(
+            return {"msg": "customer not registered missing data ( ID or Name )", "status": False}
+        sql_statment = """INSERT INTO customer(name,email,password) VALUES("{name}","{email}","{password}")""".format(
             name=customer.name, email=customer.email, password=customer.password)
         self.db.insert(sql_statment)
         return {"msg": "customer registered", "status": True}
@@ -31,3 +32,17 @@ class Register:
             name=project.name, type=project.type, customer_id=project.customer_id, department_id=project.department_id)
         self.db.insert(sql_statment)
         return {"msg": "project registered", "status": True}
+
+    def get_customer(self, email: str):
+        if email == '':
+            return {"msg": "email is empty", "status": False}
+        sql_statment = """SELECT * FROM customer WHERE email="{email}" """.format(
+            email=email)
+        result = self.db.query(sql_statment)
+
+        return {
+            "id": result[0][0],
+            "email": result[0][1],
+            "password": result[0][2],
+            "name": result[0][3]
+        }

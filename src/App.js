@@ -36,8 +36,8 @@ function App() {
     if (language === "en") {
       setTranslation(english);
       document.querySelector("html").lang = "en";
-      if(document.styleSheets.length>14){
-      document.styleSheets[14].disabled = true} 
+      if(document.styleSheets.length>16){
+      document.styleSheets[16].disabled = true} 
     } else {
       setTranslation(arabic);
       document.querySelector("html").lang = "ar";
@@ -48,7 +48,7 @@ function App() {
         link.href = "./style-rtl.css"
         document.querySelector("head").appendChild(link) 
       }
-      else document.styleSheets[14].disabled = false  
+      else document.styleSheets[16].disabled = false  
       }
   }, [language]);
 
@@ -57,13 +57,13 @@ function App() {
       <div className="App" id="app">
         <Header value={translation.header} changeLanguage={setLanguage} />
         <Routes>
-          <Route path = "/" exact element = {<Home lang = {language}/>}/>
-          <Route path = "/about"  element = {<About/>}/>
-          <Route path = "/project"  element = {<Project/>}/>
-          <Route path = "/contact"  element = {<Contact/>}/>
-          <Route path = "/login"  element = {<Login/>}/>
-          <Route path = "/signup"  element = {<Signup/>}/>
-          <Route path = "*"  element = {<Error/>}/>
+          <Route path="/" exact element = {<Home lang = {language}/>}/>
+          <Route path="/about"  element = {<About/>}/>
+          <Route path="/project"  element = {<Project value={translation.projects}/>}/>
+          <Route path="/contact"  element = {<Contact/>}/>
+          <Route path="/login"  element = {<Login/>}/>
+          <Route path="/signup"  element = {<Signup/>}/>
+          <Route path="*"  element = {<Error/>}/>
         </Routes>
         <Footer value={translation.footer} />
         <button id="ichat" onClick={show}></button>

@@ -63,5 +63,12 @@
     "question": "Are you sure you want to book an appointment today",
     "confirm": "Please answer with Yes or No ",
     "thank": "thanks for answer"
-  }
+  },
+  "projects" :{
+    "h2": "PORTFOLIO",
+    "p": "See our work, we’re proud of it",
+    "type":["\\ WEBSITE","\\ APP"],
+    "button": "LET’S START A NEW PROJECT"
+
+  } 
 }

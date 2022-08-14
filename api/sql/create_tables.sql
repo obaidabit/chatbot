@@ -27,5 +27,5 @@ CREATE TABLE Project(
     department_id INTEGER NOT NULL,
     FOREIGN KEY(customer_id) REFERENCES Customer(id),
     FOREIGN KEY(department_id) REFERENCES Department(id)
-)
+);
 

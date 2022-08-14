@@ -7,6 +7,12 @@
     var(--secondary-color) 50%
   );
 }
+.not-active{
+  background : var(--secondary-color);
+}
+.header .container .isactive{
+  color : var(--primary-color);
+}
 .header .container,
 .header .container a,
 .header .container .nav,
@@ -16,7 +22,10 @@
 ,.S-info .container,
 .footer .container ,
 .footer .box .line,
-.footer .box .social {
+.footer .box .social,
+.PLanding .container,
+.VProject .container .year,
+.VProject .container .projects {
     flex-direction: row-reverse;
   }
 .header .container .nav li:not(:last-child){
@@ -46,7 +55,8 @@
 .services .service .content,
 .S-info .container .content,
 .footer .logo,
-.footer .link {
+.footer .link,
+.VProject .container .projects .project h2 {
   text-align: right;
 }
 .landing .box .content h5:last-child,
@@ -100,4 +110,10 @@
   flex-direction:column ;
   }
 } 
+.chat .msg-box .msg-left .msg-details p{
+  text-align: right;
+}
+.PLanding .container .content h2{
+  letter-spacing: 0px;
+}
 
