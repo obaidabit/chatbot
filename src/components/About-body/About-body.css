@@ -1,0 +1,55 @@
+.About-body{
+    background-color: var(--secondary-color);
+}
+.About-body h1{
+    color: var(--section-color);
+    padding: 104px 0px 57px 0px;
+    font-weight: normal;
+    font-size: 50px;
+}
+.About-body .container{
+    display: flex;
+    margin-bottom: 45px;
+}
+.About-body .paragraph{
+    width: 100%;
+    text-align: left;
+    line-height: 173%;
+    padding:0px 15px;
+    height: 100%;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+.About-body .link {
+    padding: 40px;
+}
+.About-body .link a{
+    border: solid 1px ;
+    font-size: 17px;
+    color: var(--primary-color);
+    padding: 10px;
+}
+.About-body .leadership .container {
+    display: flex;
+    color: var(--section-color);
+    margin:0% auto;
+}
+.About-body .leadership .container .left{
+    text-align: left;
+    font-weight: bold;
+    font-size: 32px;
+}
+.thefounder{
+    color: var(--primary-color);
+    width: max-content;
+}
+.About-body .leadership .container .right h2{
+    font-size: 24px;
+}
+.About-body .leadership .container .right{
+    text-align: left;
+    margin-left: 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    line-height: 150%;
+}

@@ -1,8 +1,13 @@
-function About(){
+import AboutLanding from "../components/About-landing/About-landing"
+import AboutBody from "../components/About-body/About-body"
+function About(props){
+
   return(
-    <div style={{minHeight:"50vh"}} >
-      <h1>Hello About Page</h1>
+
+    <div>
+      <AboutLanding/>
+      <AboutBody/>
     </div>
-  )
+  );
 }
 export default About

@@ -1,8 +1,12 @@
-function Contact(){
-  return(
-    <div style={{minHeight:"50vh"}}>
-      <h1>Hello Contact Page</h1>
+import ContactLanding from "../components/Contact-landing/ContactLanding";
+import ContactBody from "../components/ContactBody/ContactBody";
+function Contact(props) {
+
+  return (
+    <div >
+      <ContactLanding/>
+      <ContactBody/>
     </div>
-  )
+  );
 }
 export default Contact

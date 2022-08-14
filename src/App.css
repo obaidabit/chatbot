@@ -1,5 +1,10 @@
 @import url("./components/Header/Header.css");
 @import url("./components/Landing/Landing.css");
+@import url("./components//About-landing/About-landing.css");
+@import url("./components/About-body/About-body.css");
+@import url("./components/ContactBody/ContactBody.css");
+@import url("./components/Contact-landing/ContactLanding.css");
+@import url("./components/Signup/signup.css");
 @import url("./components/Services/Services.css");
 @import url("./components/Info/Info.css");
 @import url("./components/Achieve/Achieve.css");
