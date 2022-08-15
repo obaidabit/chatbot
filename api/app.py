@@ -46,13 +46,13 @@ def get_current_time():
             apps.append(i.toDict())
         answer["appointments"] = apps
 
-    if state == "appoitment":
+    if state == "appo":
         appo = Appointment(8, msg, "11:00", 1, 2, 0)
         booker = Booker(os.getenv('DATABASE'))
         result = booker.book(appo)
         if result['status']:
             answer['appoitment'] = appo.toDict()
-            answer["tag"] = 'appoitment'
+            answer["tag"] = 'appo'
             answer['answer'] = result['msg']
         else:
             if language == 'en':
@@ -62,28 +62,43 @@ def get_current_time():
     return {"msg": answer["answer"], "data": answer}
 
 
-@app.route("/register", methods=["POST"])
+@app.route("/api/register", methods=["POST"])
 def register():
     request_data = json.loads(request.data)
     register = Register(Database.instance(os.getenv('DATABASE')))
+    customer = register.get_customer(request_data['email'])
+    if customer:
+        return json.jsonify({
+            'status': False,
+            'msg': 'User allready exist'
+        })
     password = generate_password_hash(request_data['password'])
     customer = Customer(
         1, request_data['name'], request_data['email'], password)
-    print(customer.toDict())
     register.save_customer(customer)
     customer.password = password
     return customer.toDict()
 
 
-@app.route('/login', methods=["POST"])
+@app.route('/api/login', methods=["POST"])
 def login():
     request_data = json.loads(request.data)
     register = Register(Database.instance(os.getenv('DATABASE')))
     customer = register.get_customer(request_data['email'])
-    print(customer)
+    if not customer:
+        return json.jsonify({
+            'status': False,
+            'msg': 'user does not exist'
+        })
     status = check_password_hash(
         customer['password'], request_data['password'])
+    if not status:
+        return json.jsonify({
+            'status': False,
+            'msg': 'Email or Password is wrong'
+        })
     res = make_response()
+    res = json.jsonify(customer)
     if status:
         token = jwt.encode(
             {'name': customer['name'], 'email': customer['email']}, os.getenv('SECRET_KEY'))
@@ -91,5 +106,31 @@ def login():
     return res
 
 
+@app.route('/api/logout', methods=["DELETE"])
+def logout():
+    res = make_response()
+
+    res.set_cookie('x-access-tokens', '')
+
+    return res
+
+
+@app.route('/api/get_info', methods=["GET"])
+def get_info():
+    token = request.cookies.get('x-access-tokens')
+
+    if not token:
+        return json.jsonify({
+            'msg': 'missing token'
+        })
+    data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=['HS256'])
+    if data:
+        return json.jsonify(data)
+    else:
+        return json.jsonify({
+            'msg': 'invalid token'
+        })
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port="6000")
+    app.run(debug=False, port="6000")

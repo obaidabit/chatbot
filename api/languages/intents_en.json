@@ -145,7 +145,7 @@
         "contact us page"
       ],
       "responses": [
-        "You can contact us on this page <a href='contact'>Contact us</a>"
+        "You can contact us on this page <a href='/contact'>Contact us</a>"
       ]
     },
     {
@@ -162,7 +162,7 @@
         "project page"
       ],
       "responses": [
-        "You can see our projects on this page <a href='project'>Projects</a>"
+        "You can see our projects on this page <a href='/project'>Projects</a>"
       ]
     },
     {
@@ -178,13 +178,13 @@
         "about us page"
       ],
       "responses": [
-        "You can know more about us on this page <a href='about-us'>About Us</a>"
+        "You can know more about us on this page <a href='/about'>About Us</a>"
       ]
     },
     {
       "tag": "login",
       "patterns": ["I want to login", "login page"],
-      "responses": ["You can login on this page <a href='login'>Login</a>"]
+      "responses": ["You can login on this page <a href='/login'>Login</a>"]
     },
     {
       "tag": "signup",
@@ -195,7 +195,7 @@
         "register page",
         "signup page"
       ],
-      "responses": ["You can signup on this page <a href='login'>Signup</a>"]
+      "responses": ["You can signup on this page <a href='/signup'>Signup</a>"]
     },
     {
       "tag": "complaine",
@@ -219,8 +219,8 @@
         "I did not have a pleasant experience working with you"
       ],
       "responses": [
-        "We are sorry to hear that, you can give your feeds on this page <a href='contact'>Contact</a>",
-        "We will try our best to improve our services, you can give your feeds on this page <a href='contact'>Contact</a>"
+        "We are sorry to hear that, you can give your feeds on this page <a href='/contact'>Contact</a>",
+        "We will try our best to improve our services, you can give your feeds on this page <a href='/contact'>Contact</a>"
       ]
     },
     {
@@ -235,8 +235,8 @@
         "can you make some improvements"
       ],
       "responses": [
-        "We would like to know that, you can give your feeds on this page <a href='contact'>Contact</a>",
-        "We constantly working to imporve, you can give your feeds on this page <a href='contact'>Contact</a>"
+        "We would like to know that, you can give your feeds on this page <a href='/contact'>Contact</a>",
+        "We constantly working to imporve, you can give your feeds on this page <a href='/contact'>Contact</a>"
       ]
     },
     {
@@ -263,7 +263,7 @@
         "We are so happy to hear that",
         "Company without happy customer, company without future",
         "We were happy to work with you too",
-        "It was an honor to meet you, If you have an feed to make our service even better you can go to this page <a href='contact'>Contact</a>"
+        "It was an honor to meet you, If you have an feed to make our service even better you can go to this page <a href='/contact'>Contact</a>"
       ]
     },
     {

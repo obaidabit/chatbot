@@ -39,7 +39,8 @@ class Register:
         sql_statment = """SELECT * FROM customer WHERE email="{email}" """.format(
             email=email)
         result = self.db.query(sql_statment)
-
+        if len(result) == 0:
+            return None
         return {
             "id": result[0][0],
             "email": result[0][1],
