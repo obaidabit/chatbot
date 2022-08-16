@@ -25,7 +25,11 @@
 .footer .box .social,
 .PLanding .container,
 .VProject .container .year,
-.VProject .container .projects {
+.VProject .container .projects,
+.ContactLanding .container,
+.About-landing .container,
+.About-body .container,
+.signup .container {
     flex-direction: row-reverse;
   }
 .header .container .nav li:not(:last-child){
@@ -56,7 +60,11 @@
 .S-info .container .content,
 .footer .logo,
 .footer .link,
-.VProject .container .projects .project h2 {
+.VProject .container .projects .project h2,
+.About-body,
+.About-body .paragraph,
+.signup .box form,
+.signup input[type=text], .signup input[type=password] {
   text-align: right;
 }
 .landing .box .content h5:last-child,
@@ -116,4 +124,29 @@
 .PLanding .container .content h2{
   letter-spacing: 0px;
 }
+/*Contact*/
+.ContactLanding .box{
+  right: 50px;
+}
+.ContactBody label{
+  text-align: right;
+  margin-right:15%;
+}
+.ContactBody input, .ContactBody select, .ContactBody textarea{
+  text-align: right;
+}
 
+.ContactBody form  .abox{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15%;
+}
+
+.About-body h1,.About-body .link{
+  text-align: center;
+}
+.About-body .leadership .container .right{
+  text-align: right;
+  margin-right: 40px;
+
+}

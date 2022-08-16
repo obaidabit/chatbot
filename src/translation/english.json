@@ -70,5 +70,63 @@
     "type":["\\ WEBSITE","\\ APP"],
     "button": "LET’S START A NEW PROJECT"
 
-  } 
+  } ,
+  "contact":{
+    "h1" : "COME FOR A CHAT,COFFEE ON US",
+    "h3" : "We can’t wait to meet you",
+    "Bh1":"We’d love to hear from you",
+    "p":"Whether you have a question about features, trails need a demo, or anything else, our team is ready to answer all your question",
+    "contactReason":"What Can We Help You With?",
+    "option1":"technecal issue",
+    "option2":"new project",
+    "option3":"software feedback",
+    "option4":"SEO improvment",
+    "name":"Your Name",
+    "Pname":"Your Name",
+    "email" : "Valid Email Address",
+    "Pemail" : "your email",
+    "subject":"Subject",
+    "Psubject":"Why are you contacting us?",
+    "message":"Details",
+    "Pmessage":"write your message here",
+    "submit":"Submit"
+  },
+  "about":{
+    "h1":"PERFECTIONISM VS OBSESSION",
+    "h3":"There’s a fine line between perfectionism and obsession. We don’t see it",
+    "Bh1":"What makes us who we are today…",
+    "p1":"At Softimpact, we develop innovative and creative products and services that provide total communication and information solutions. Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting and internet portal management are few that we offer. Satisfied clients around the globe bear testimony to the quality of our work.",
+    "p2":"The general purpose of Softimpact is to develop and promote advanced information technologies for multi-user operation.",
+    "p3":"Softimpact's business philosophy is to assure the highest quality product, total client satisfaction, timely delivery of solutions and the best quality/price ratio found in the industry.",
+    "p4":"Our emphasis is on offering a high degree of product user friendliness through a positive, creative and focused company staff.",
+    "a":"SEE WHAT WE'VE DONE",
+    "Lh1":"Meet",
+    "Lh3":"The Founder",
+    "Rh2":"Alberto Somayya",
+    "Rp1":"Executive Chief",
+    "Rp2":"Alberto Somayya took the world of program development by storm. With over 25 years of experience, he successfully established and ran his own company Softimpact in 2004, a pioneer in art & technology exploring"
+  },
+  "login":{
+    "h1":"Login",
+    "p1":"Doesn’t have an account yet ? ",
+    "p2":"Signup",
+    "email":"Email",
+    "Pemail":"you@example.com",
+    "password":"Password",
+    "Ppassword":"Enter 6 character or more",
+    "input":"login"
+  },
+  "signup":{
+    "h1":"Create Account",
+    "p1":"Already have an account? ",
+    "p2":"Login",
+    "email":"Email",
+    "Pemail":"you@example.com",
+    "username":"User Name",
+    "Pusername":"write your name",
+    "password":"Password",
+    "Ppassword":"Enter 6 character or more",
+    "input":"Submit"
+  }
+
 }
