@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../hooks/userContext";
 
-function Signup() {
+function Signup(props) {
   const user = useContext(UserContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -39,32 +39,32 @@ function Signup() {
         <div className="box">
           <div className="content">
             <form onSubmit={handleSignup}>
-              <h1>Create Account</h1>
+              <h1>{props.value.h1}</h1>
               <p style={{ color: "tomato" }}>{error}</p>
               <p>
-                Already have an account?
+              {props.value.p1}
                 <Link to="/login" style={{ color: "white" }}>
-                  <strong>login</strong>
+                  <strong>{props.value.p2}</strong>
                 </Link>
               </p>
 
               <div>
-                <label htmlFor="email">Email</label>
-                <input id="email" type="text" placeholder="you@example.com" />
+                <label htmlFor="email">{props.value.email}</label>
+                <input id="email" type="text" placeholder={props.value.Pemail} />
               </div>
               <div>
-                <label htmlFor="name">User Name</label>
-                <input id="name" type="text" placeholder="write your name" />
+                <label htmlFor="name">{props.value.username}</label>
+                <input id="name" type="text" placeholder={props.value.Pusername} />
               </div>
               <div>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">{props.value.password}</label>
                 <input
                   id="password"
                   type="password"
-                  placeholder="Enter 6 character or more"
+                  placeholder={props.value.Ppassword}
                 />
               </div>
-              <input type="submit" value="Submit" />
+              <input type="submit" value={props.value.input} />
             </form>
           </div>
         </div>

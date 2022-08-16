@@ -5,8 +5,8 @@ function About(props){
   return(
 
     <div>
-      <AboutLanding/>
-      <AboutBody/>
+      <AboutLanding value={props.value}/>
+      <AboutBody value={props.value}/>
     </div>
   );
 }

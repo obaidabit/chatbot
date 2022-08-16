@@ -4,8 +4,8 @@ function Contact(props) {
 
   return (
     <div >
-      <ContactLanding/>
-      <ContactBody/>
+      <ContactLanding value={props.value}/>
+      <ContactBody value={props.value} />
     </div>
   );
 }

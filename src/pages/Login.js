@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import UserContext from "../hooks/userContext";
 
-function Login() {
+function Login(props) {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const user = useContext(UserContext);
@@ -38,34 +38,34 @@ function Login() {
         <div className="box">
           <div className="content">
             <form onSubmit={handleLogin}>
-              <h1>Login</h1>
+              <h1>{props.value.h1}</h1>
               {error ? <p style={{ color: "tomato" }}>{error}</p> : null}
               <p>
-                Doesn’t have an account yet ?
+                {props.value.p1}
                 <Link to="/signup" style={{ color: "white" }}>
-                  <strong>Signup</strong>
+                  <strong>{props.value.p2}</strong>
                 </Link>
               </p>
 
               <div>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{props.value.email}</label>
                 <input
                   id="email"
                   name="email"
                   type="text"
-                  placeholder="you@example.com"
+                  placeholder={props.value.Pemail}
                 />
               </div>
               <div>
-                <label htmlFor="password">User Name</label>
+                <label htmlFor="password">{props.value.password}</label>
                 <input
                   id="password"
                   type="password"
                   name="password"
-                  placeholder="Enter 6 character or more"
+                  placeholder={props.value.Ppassword}
                 />
               </div>
-              <input type="submit" value="login" />
+              <input type="submit" value={props.value.input} />
             </form>
           </div>
         </div>

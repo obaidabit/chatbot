@@ -73,14 +73,14 @@ function App() {
           <Header value={translation.header} changeLanguage={setLanguage} />
           <Routes>
             <Route path="/" exact element={<Home lang={language} />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About value={translation.about} />} />
             <Route
               path="/project"
               element={<Project value={translation.projects} />}
             />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/contact" element={<Contact value={translation.contact} />} />
+            <Route path="/login" element={<Login value={translation.login}/>} />
+            <Route path="/signup" element={<Signup value={translation.signup} />} />
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer value={translation.footer} />
