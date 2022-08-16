@@ -70,7 +70,11 @@
       "patterns": [
         "What do you offer as services?",
         "What is your services?",
-        "tell me about your services?"
+        "tell me about your services?",
+        "what services do you provide",
+        "what services do you have",
+        "your services",
+        "services"
       ],
       "responses": [
         "We offer the following services, website development, website management, technical support, moblie app, desktop application"
@@ -282,6 +286,30 @@
         "You guys need to hear that"
       ],
       "responses": ["Ok", "Yes", "Tell me"]
+    },
+    {
+      "tag": "start_project",
+      "patterns": [
+        "I want to make a",
+        "I want to make a website",
+        "I want to make a mobile application",
+        "I want to make a desktop application",
+        "I have website to manage",
+        "I have website that need manage",
+        "I have project",
+        "I need a website",
+        "I need a mobile app",
+        "I need a desktop app",
+        "I am thinking of making a website",
+        "I am thinking of making a mobile app",
+        "I am thinking of making a desktop app",
+        "can you make a website",
+        "can you make a mobile app",
+        "can you make a desktop app"
+      ],
+      "responses": [
+        "You can book an appointment with us to discuss the project details"
+      ]
     }
   ]
 }

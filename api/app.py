@@ -53,7 +53,11 @@ def get_current_time():
         if result['status']:
             answer['appoitment'] = appo.toDict()
             answer["tag"] = 'appo'
-            answer['answer'] = result['msg']
+
+            if language == 'en':
+                answer['answer'] = result['msg']
+            else:
+                answer['answer'] = 'تم حجز الموعد بنجاح'
         else:
             if language == 'en':
                 answer['answer'] = 'Unable to book an appointement try again.'
