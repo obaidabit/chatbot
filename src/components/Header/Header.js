@@ -72,10 +72,19 @@ function Header(props) {
               {props.value.aboutus}
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              className={(status) => (status.isActive ? "active" : "")}
+              onClick={changeHeader}
+              to="/login"
+            >
+              {props.value.login}
+            </NavLink>
+          </li>
           {user.user ? (
             <li className="user">
               <span>{user.user.name}</span>
-              <button className="logout" onClick={handleLogout}>
+              <button className="logout" onClick={handleLogout} title="logout">
                 <AiOutlineLogout />
               </button>
             </li>

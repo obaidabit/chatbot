@@ -13,7 +13,7 @@ from src.booker import Booker
 from src.customer import Customer
 
 app = Flask(__name__)
-chatbot = Chatbot(languages=('en', 'ar'), train=False)
+chatbot = Chatbot(languages=('en', 'ar'), train=True)
 chatbot.setup()
 load_dotenv(".env")
 

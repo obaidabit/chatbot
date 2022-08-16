@@ -15,9 +15,6 @@
         "Good evening",
         "Morining",
         "Howdy",
-        "G'day",
-        "Yo",
-        "Sup",
         "What's up"
       ],
       "responses": [
@@ -127,7 +124,9 @@
         "I want the price list",
         "how much it cost for"
       ],
-      "responses": []
+      "responses": [
+        "500$ for website and desktop application ,400$ for website management , 700$ for mobile application and you can contact us if you have other projects"
+      ]
     },
     {
       "tag": "support",

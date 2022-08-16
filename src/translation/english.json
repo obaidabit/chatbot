@@ -6,7 +6,8 @@
     "language": {
       "en": "EN",
       "ar": "AR"
-    }
+    },
+    "login": "Login"
   },
   "landing": {
     "p1": "We Provied Amazing",
@@ -64,11 +65,10 @@
     "confirm": "Please answer with Yes or No ",
     "thank": "thanks for answer"
   },
-  "projects" :{
+  "projects": {
     "h2": "PORTFOLIO",
     "p": "See our work, we’re proud of it",
-    "type":["\\ WEBSITE","\\ APP"],
+    "type": ["\\ WEBSITE", "\\ APP"],
     "button": "LET’S START A NEW PROJECT"
-
-  } 
+  }
 }
