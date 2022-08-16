@@ -1,7 +1,7 @@
 
 function Recent(props) {
   return (
-    <div className="recent">
+    <div className="recent" data-aos="fade-in">
       <h2 className="main-title">{props.value.h2}</h2>
       <div className="container">
         <div className="box">

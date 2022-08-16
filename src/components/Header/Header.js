@@ -57,6 +57,7 @@ function Header(props) {
           <li>
             <NavLink
               className={(status) => (status.isActive ? "active" : "")}
+              onClick={changeHeader}
               to="/contact"
             >
               {props.value.contact}
@@ -65,6 +66,7 @@ function Header(props) {
           <li>
             <NavLink
               className={(status) => (status.isActive ? "active" : "")}
+              onClick={changeHeader}
               to="/about"
             >
               {props.value.aboutus}

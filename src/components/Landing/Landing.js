@@ -4,13 +4,13 @@ function Landing(props) {
     <div className="landing">
       <div className="container">
         <div className="box">
-          <div className="content">
+          <div className="content" data-aos="fade-right">
             <h5>{props.value.p1}</h5>
             <p>{props.value.p2}</p>
             <h5>{props.value.p3}</h5>
           </div>
-          <div className="link">
-            <a href="#">{props.value.btn1}</a>
+          <div className="link" data-aos="fade-up">
+            <a href="#">{props.value.btn1} </a>
             <Link to="/contact">{props.value.btn2}</Link>
           </div>
         </div>

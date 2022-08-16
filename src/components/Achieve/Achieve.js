@@ -5,7 +5,7 @@ function Achieve(props) {
       <div className="container">
         <img src="./img/Achieve.svg"></img>
         <h2>{props.value.h2}</h2>
-        <div className="statistics">
+        <div className="statistics" data-aos="slide-up">
           <div className="box">
             <h2>47+</h2>
             <p>{props.value.workDone}</p>

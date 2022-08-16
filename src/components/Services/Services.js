@@ -1,7 +1,7 @@
 
 function Services(props) {
   return (
-    <div className="services">
+    <div className="services" data-aos="fade-up">
       <h2 className="main-title">{props.value.h2}</h2>
       <div className="container">
         <div className="service">

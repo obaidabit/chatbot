@@ -37,19 +37,19 @@ function App() {
     if (language === "en") {
       setTranslation(english);
       document.querySelector("html").lang = "en";
-      if (document.styleSheets.length > 16) {
-        document.styleSheets[16].disabled = true;
+      if (document.styleSheets.length > 21) {
+        document.styleSheets[21].disabled = true;
       }
     } else {
       setTranslation(arabic);
       document.querySelector("html").lang = "ar";
       let links = document.querySelectorAll("link");
-      if (links.length == 4) {
+      if (links.length == 5) {
         let link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = "./style-rtl.css";
         document.querySelector("head").appendChild(link);
-      } else document.styleSheets[16].disabled = false;
+      } else document.styleSheets[21].disabled = false;
     }
     const cookie = document.cookie.replace(
       /(?:(?:^|.*;\s*)x-access-tokens\s*\=\s*([^;]*).*$)|^.*$/,

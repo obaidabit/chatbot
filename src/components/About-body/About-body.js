@@ -6,7 +6,7 @@ function AboutBody() {
                 What makes us who we are today…
             </h1>
             <div className="container">
-                <div className="paragraph">
+                <div className="paragraph" data-aos="fade-down">
                     <p>
                         At Softimpact, we develop innovative and creative products and services that provide total communication and information solutions.
                         Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions,
@@ -19,7 +19,7 @@ function AboutBody() {
                         Softimpact is committed to exporting quality software worldwide.
                     </p>
                 </div>
-                <div className="paragraph">
+                <div className="paragraph" data-aos="fade-down">
                     <p>
                         The general purpose of Softimpact is to develop and promote advanced information technologies for multi-user operation.<br></br><br></br>
                         Softimpact's business philosophy is to assure the highest quality product, total client satisfaction, timely delivery of solutions and the best quality/price ratio found in the industry.<br></br><br></br>
