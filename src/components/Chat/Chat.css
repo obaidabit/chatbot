@@ -133,6 +133,7 @@
 }
 .chat .msg-box .msg-right .msg-bubble{
     border-bottom-right-radius: 0;
+    background-color: #5a8ce4;
 }
 
 .chat .msg-form{
